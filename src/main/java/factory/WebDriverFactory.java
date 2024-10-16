@@ -10,7 +10,7 @@ public class WebDriverFactory {
     private String browserName = System.getProperty("browser");
 
     public WebDriver getDriver(String typeToOpen) {
-        switch(browserName) {
+        switch(browserName.toLowerCase()) {
             case "chrome": {
                 return new ChromeDriver((ChromeOptions) new ChromeSettings().setting(typeToOpen));
             }

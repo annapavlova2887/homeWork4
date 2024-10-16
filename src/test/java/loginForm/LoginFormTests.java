@@ -17,7 +17,7 @@ public class LoginFormTests {
     private String typeToOpen = "--start-maximized";
 
     private   WebElement getElement(By locator) {
-        return driver.findElement(locator); // - уточни как лучше, стоит ли мучаться и выносить локаторы
+        return driver.findElement(locator);
     }
 
     private String nameForTest = "фыв";

@@ -14,6 +14,7 @@ public class SearchFieldTests {
     private WebDriver driver;
     private WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     private String typeToOpen = "--headless" ;
+    private String testData = "ОТУС";
 
     public WebElement getElement(By locator) {
         return driver.findElement(locator);
@@ -45,7 +46,7 @@ public class SearchFieldTests {
         WebElement findWindow = getElement(By.id(locatorOfFindWin));
         wait.until(ExpectedConditions.visibilityOf(findWindow));
         findWindow.clear();
-        findWindow.sendKeys("ОТУС");
-        Assertions.assertEquals("ОТУС", findWindow.getAttribute("value"));
+        findWindow.sendKeys(testData);
+        Assertions.assertEquals(testData, findWindow.getAttribute("value"));
     }
 }

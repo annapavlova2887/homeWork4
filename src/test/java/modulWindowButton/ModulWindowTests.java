@@ -44,11 +44,11 @@ public class ModulWindowTests {
 
     @Test
     public void modalWindow() {
-        WebElement modulButton = getElement(By.id(locatorModulButton));
+        WebElement buttonForModalWindow = getElement(By.id(locatorModulButton));
         WebElement modulWindow = getElement(By.id(locatorModulWindow));
-        wait.until(ExpectedConditions.visibilityOf(modulButton));
+        wait.until(ExpectedConditions.visibilityOf(buttonForModalWindow));
         Assertions.assertFalse(modulWindow.isDisplayed());
-        modulButton.click();
+        buttonForModalWindow.click();
         wait.until(ExpectedConditions.visibilityOf(modulWindow));
         Assertions.assertTrue(modulWindow.isDisplayed());
     }

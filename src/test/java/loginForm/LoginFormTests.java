@@ -23,10 +23,10 @@ public class LoginFormTests {
     private String nameForTest = "фыв";
     private String emailForTest = "asdf@sdfg.rt";
 
-    private String locatorNameForm = "name";
-    private String locatorEmailForm = "email";
+    private String locatorFieldName = "name";
+    private String locatorFieldEmail = "email";
     private String locatorSentButton = "[type=\"submit\"]";
-    private String locatorMessForm = "#messageBox";
+    private String locatorMessageForm = "#messageBox";
 
     @BeforeAll
     public static void init() {
@@ -49,15 +49,15 @@ public class LoginFormTests {
 
     @Test
     public void loginForm() {
-        WebElement nameForm = getElement(By.id(locatorNameForm));
-        WebElement emailForm = getElement(By.id(locatorEmailForm));
+        WebElement fieldName = getElement(By.id(locatorFieldName));
+        WebElement fieldEmail = getElement(By.id(locatorFieldEmail));
         WebElement sentButton = getElement(By.cssSelector(locatorSentButton));
-        WebElement messForm = getElement(By.cssSelector(locatorMessForm));
-        wait.until(ExpectedConditions.visibilityOf(nameForm));
-        nameForm.sendKeys(nameForTest);
-        emailForm.sendKeys(emailForTest);
+        WebElement messageForm = getElement(By.cssSelector(locatorMessageForm));
+        wait.until(ExpectedConditions.visibilityOf(fieldName));
+        fieldName.sendKeys(nameForTest);
+        fieldEmail.sendKeys(emailForTest);
         sentButton.click();
-        wait.until(ExpectedConditions.visibilityOf(messForm));
-        Assertions.assertEquals("Форма отправлена с именем: " + nameForTest + " и email: " + emailForTest, messForm.getText());
+        wait.until(ExpectedConditions.visibilityOf(messageForm));
+        Assertions.assertEquals("Форма отправлена с именем: " + nameForTest + " и email: " + emailForTest, messageForm.getText());
     }
 }
